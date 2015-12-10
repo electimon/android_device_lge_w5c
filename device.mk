@@ -165,6 +165,10 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     com.android.future.usb.accessory
 
+# Camera
+PRODUCT_PACKAGES += \
+    camera.msm8610
+
 # Density
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.sf.lcd_density=240
