@@ -441,6 +441,9 @@ PRODUCT_COPY_FILES += \
 PRODUCT_BUILD_PROP_OVERRIDES += BUILD_UTC_DATE=0
 
 PRODUCT_PROPERTY_OVERRIDES += \
+    camera2.portability.force_api=1 \
+    media.stagefright.legacyencoder=true \
+    media.stagefright.less-secure=true \
     ro.lge.proximity.delay=25 \
     wlan.chip.vendor=qcom \
     wlan.chip.version=wcn \
