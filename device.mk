@@ -127,6 +127,8 @@ PRODUCT_COPY_FILES += \
 
 # Audio
 PRODUCT_PACKAGES += \
+    android.hardware.audio@2.0-impl \
+    android.hardware.audio.effect@2.0-impl \
     audio.primary.msm8610 \
     audio.a2dp.default \
     audio.usb.default \
@@ -147,6 +149,12 @@ PRODUCT_PACKAGES += \
     amix \
     arec \
     alsaucm_test
+
+# Graphics
+PRODUCT_PACKAGES += \
+    android.hardware.graphics.allocator@2.0-impl \
+    android.hardware.graphics.composer@2.1-impl \
+    android.hardware.graphics.mapper@2.0-impl
 
 # Misc
 PRODUCT_PACKAGES += \
@@ -223,6 +231,18 @@ PRODUCT_PACKAGES += \
     lights.msm8610 \
     memtrack.msm8610 \
     power.msm8610
+
+# Lights
+PRODUCT_PACKAGES += \
+    android.hardware.light@2.0-impl
+
+# Sensors
+PRODUCT_PACKAGES += \
+    android.hardware.sensors@1.0-impl
+
+# Power
+PRODUCT_PACKAGES += \
+    android.hardware.power@1.0-impl
 
 # Utilities
 PRODUCT_PACKAGES += \
