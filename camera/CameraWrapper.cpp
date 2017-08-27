@@ -47,6 +47,34 @@ static int camera_device_open(const hw_module_t *module, const char *name,
 static int camera_get_number_of_cameras(void);
 static int camera_get_camera_info(int camera_id, struct camera_info *info);
 
+const char AUDIO_ZOOM_OFF[] = "audio-zoom";
+const char AUDIO_ZOOM_ON[] = "audio-zoom";
+const char AUTO_HDR_SUPPORTED[] = "auto-hdr-supported";
+const char BEAUTY_SHOT_OFF[] = "beauty-shot";
+const char BEAUTY_SHOT_ON[] = "beauty-shot";
+const char BURST_SHOT_OFF[] = "burst-shot";
+const char BURST_SHOT_ON[] = "burst-shot";
+const char DENOISE_ON_OFF_MODES_MAP[] = "denoise-values";
+const char KEY_AUDIO_ZOOM[] = "audio-zoom";
+const char KEY_AUDIO_ZOOM_SUPPORTED[] = "audio-zoom-supported";
+const char KEY_BEAUTY_SHOT[] = "beauty-shot";
+const char KEY_BEAUTY_SHOT_SUPPORTED[] = "beauty-shot-supported";
+const char KEY_BURST_SHOT[] = "burst-shot";
+const char KEY_BURST_SHOT_SUPPORTED[] = "burst-shot-supported";
+const char KEY_FOCUS_MODE_OBJECT_TRACKING[] = "object-tracking";
+const char KEY_FOCUS_MODE_OBJECT_TRACKING_SUPPORTED[] = "object-tracking-supported";
+const char KEY_HDR_MODE[] = "hdr-mode";
+const char KEY_QC_DENOISE[] = "denoise";
+const char KEY_QC_SUPPORTED_AE_BRACKETING_MODES[] = "ae-bracket-hdr-values";
+const char KEY_QC_ZSL[] = "zsl";
+const char KEY_VIDEO_WDR[] = "video-wdr";
+const char KEY_VIDEO_WDR_SUPPORTED[] = "video-wdr-supported";
+const char OBJECT_TRACKING_ON[] = "object-tracking";
+const char OBJECT_TRACKING_OFF[] = "object-tracking";
+const char KEY_LGE_CAMERA[] = "lge-camera";
+const char VIDEO_WDR_OFF[] = "video-wdr";
+const char VIDEO_WDR_ON[] = "video-wdr";
+
 static struct hw_module_methods_t camera_module_methods = {
     .open = camera_device_open
 };
@@ -340,8 +368,8 @@ static char *camera_fixup_getparams(int id, const char *settings)
    	 params.set(CameraParameters::KEY_SUPPORTED_PREVIEW_SIZES, supportedPreviewSizesSelfie);
     }
 
-    params.set(CameraParameters::KEY_LGE_CAMERA, "1");
-    params.set(CameraParameters::DENOISE_ON_OFF_MODES_MAP, "denoise-off,denoise-on");
+    params.set(KEY_LGE_CAMERA, "1");
+    params.set(DENOISE_ON_OFF_MODES_MAP, "denoise-off,denoise-on");
 /*
     ALOGV("%s %d: fixed parameters: ", __FUNCTION__, id);
     params.dump();
