@@ -251,6 +251,7 @@ PRODUCT_PACKAGES += \
 
 # Sensors
 PRODUCT_PACKAGES += \
+    sensors.msm8610 \
     android.hardware.sensors@1.0-impl
 
 # Power
