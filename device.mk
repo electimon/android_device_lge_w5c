@@ -279,10 +279,22 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     android.hardware.wifi@1.0-service
 
+# GPS
+PRODUCT_PACKAGES += \
+    android.hardware.gnss@1.0-impl.legacy \
+    android.hardware.gnss@1.0-service.legacy \
+    gps.msm8226
+
+PRODUCT_COPY_FILES += \
+    device/lge/w5c/gps/etc/flp.conf:system/etc/flp.conf \
+    device/lge/w5c/gps/etc/gps.conf:system/etc/gps.conf \
+    device/lge/w5c/gps/etc/izat.conf:system/etc/izat.conf \
+    device/lge/w5c/gps/etc/sap.conf:system/etc/sap.conf
+
 # Seccomp
 PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/seccomp/mediacodec-seccomp.policy:$(TARGET_COPY_OUT_VENDOR)/etc/seccomp_policy/mediacodec.policy \
-    $(LOCAL_PATH)/seccomp/mediaextractor-seccomp.policy:$(TARGET_COPY_OUT_VENDOR)/etc/seccomp_policy/mediaextractor.policy
+    device/lge/w5c/seccomp/mediacodec-seccomp.policy:$(TARGET_COPY_OUT_VENDOR)/etc/seccomp_policy/mediacodec.policy \
+    device/lge/w5c/seccomp/mediaextractor-seccomp.policy:$(TARGET_COPY_OUT_VENDOR)/etc/seccomp_policy/mediaextractor.policy
 
 # Utilities
 PRODUCT_PACKAGES += \
