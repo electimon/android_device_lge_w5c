@@ -164,6 +164,10 @@ LZMA_RAMDISK_TARGETS := recovery
 #TARGET_RECOVERY_LCD_BACKLIGHT_PATH := \"/sys/class/backlight/lm3530/brightness\"
 BOARD_RECOVERY_ALWAYS_WIPES := true
 
+# Shims
+TARGET_LD_SHIM_LIBS := \
+    /vendor/bin/mpdecision|libshims_atomic.so
+
 # TWRP Recovery
 BOARD_HAS_NO_SELECT_BUTTON := true
 TARGET_RECOVERY_FSTAB := device/lge/w5c/recovery.fstab

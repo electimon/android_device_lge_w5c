@@ -159,9 +159,9 @@ PRODUCT_PACKAGES += \
     libbson \
     libcurl \
     tcpdump \
-    libxml2
+    libxml2 \
+    libshims_atomic
 
-# Misc
 PRODUCT_PACKAGES += \
     com.android.future.usb.accessory
 
