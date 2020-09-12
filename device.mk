@@ -397,6 +397,9 @@ PRODUCT_PROPERTY_OVERRIDES += \
 # Reduce system image size by limiting java debug info.
 PRODUCT_MINIMIZE_JAVA_DEBUG_INFO := true
 
+# Don't include debug info in ART
+PRODUCT_ART_TARGET_INCLUDE_DEBUG_BUILD := false
+
 # Thermal
 PRODUCT_COPY_FILES += \
     device/lge/w5c/prebuilt/etc/thermal-engine-8610.conf:system/etc/thermal-engine-8610.conf
