@@ -394,6 +394,9 @@ PRODUCT_PROPERTY_OVERRIDES += \
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.ksm.default=1
 
+# Reduce system image size by limiting java debug info.
+PRODUCT_MINIMIZE_JAVA_DEBUG_INFO := true
+
 # Thermal
 PRODUCT_COPY_FILES += \
     device/lge/w5c/prebuilt/etc/thermal-engine-8610.conf:system/etc/thermal-engine-8610.conf
