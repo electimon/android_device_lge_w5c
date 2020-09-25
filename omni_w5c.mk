@@ -14,12 +14,9 @@
 # limitations under the License.
 #
 
-# Inherit from those products. Most specific first.
-$(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
+# Inherit from our custom product configuration
+$(call inherit-product, vendor/omni/config/common.mk)
 
-# Device identifier. This must come after all inclusions
-PRODUCT_DEVICE := addison
-PRODUCT_NAME := full_addison
-PRODUCT_BRAND := motorola
-PRODUCT_MODEL := Moto Z Play
-PRODUCT_MANUFACTURER := motorola
+$(call inherit-product, device/lge/w5c/full_w5c.mk)
+
+PRODUCT_NAME := omni_w5c

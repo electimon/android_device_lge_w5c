@@ -14,9 +14,12 @@
 # limitations under the License.
 #
 
-# Inherit from our custom product configuration
-$(call inherit-product, vendor/omni/config/common.mk)
+# Inherit from those products. Most specific first.
+$(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
 
-$(call inherit-product, device/motorola/addison/full_addison.mk)
-
-PRODUCT_NAME := omni_addison
+# Device identifier. This must come after all inclusions
+PRODUCT_DEVICE := w5c
+PRODUCT_NAME := full_w5c
+PRODUCT_BRAND := lge
+PRODUCT_MODEL := LG Realm
+PRODUCT_MANUFACTURER := lge
