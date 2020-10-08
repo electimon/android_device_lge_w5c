@@ -6,7 +6,7 @@ TARGET_SCREEN_WIDTH := 480
 TARGET_SCREEN_HEIGHT := 800
 
 # Release name
-PRODUCT_RELEASE_NAME := LG L70
-PRODUCT_NAME := cm_w5
+PRODUCT_RELEASE_NAME := LG Realm
+PRODUCT_NAME := cm_w5c
 
-$(call inherit-product, device/lge/w5/full_w5.mk)
+$(call inherit-product, device/lge/w5c/full_w5c.mk)
