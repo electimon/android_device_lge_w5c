@@ -45,9 +45,7 @@ PRODUCT_COPY_FILES += \
     device/lge/w5c/prebuilt/etc/nfc-nci.conf:system/etc/nfc-nci.conf \
     device/lge/w5c/prebuilt/etc/libnfc-nxp.conf:system/etc/libnfc-nxp.conf \
     device/lge/w5c/prebuilt/etc/nfcee_access.xml:system/etc/nfcee_access.xml \
-    device/lge/w5c/prebuilt/usr/keylayout/Generic-D320.kl:system/usr/keylayout/Generic-D320.kl \
-    device/lge/w5c/prebuilt/usr/keylayout/Generic-D325.kl:system/usr/keylayout/Generic-D325.kl \
-    device/lge/w5c/prebuilt/usr/keylayout/Generic-MS323.kl:system/usr/keylayout/Generic-MS323.kl \
+    device/lge/w5c/prebuilt/usr/keylayout/Generic-LS620.kl:system/usr/keylayout/Generic-LS620.kl \
     device/lge/w5c/fstab.msm8610:root/fstab.msm8610
 
 PRODUCT_LOCALES := en_US
