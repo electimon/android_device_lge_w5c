@@ -14,12 +14,18 @@
 # limitations under the License.
 #
 
-$(call inherit-product, frameworks/native/build/phone-hdpi-dalvik-heap.mk)
+$(call inherit-product, frameworks/native/build/phone-hdpi-512-dalvik-heap.mk)
 
 $(call inherit-product, $(SRC_TARGET_DIR)/product/languages_full.mk)
 
 # Specific overlay
-DEVICE_PACKAGE_OVERLAYS += device/lge/msm8610-common/overlay
+DEVICE_PACKAGE_OVERLAYS += device/lge/w5c/overlay
+
+# AAPT
+PRODUCT_LOCALES := en_US
+PRODUCT_LOCALES += hdpi
+PRODUCT_AAPT_CONFIG := normal hdpi
+PRODUCT_AAPT_PREF_CONFIG := hdpi
 
 # Permissions
 PRODUCT_COPY_FILES += \
@@ -45,76 +51,79 @@ PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.telephony.cdma.xml:system/etc/permissions/android.hardware.telephony.cdma.xml \
     frameworks/native/data/etc/android.hardware.audio.low_latency.xml:system/etc/permissions/android.hardware.audio.low_latency.xml \
     frameworks/native/data/etc/android.hardware.bluetooth_le.xml:system/etc/permissions/android.hardware.bluetooth_le.xml \
-    device/lge/msm8610-common/prebuilt/etc/permissions/com.qualcomm.location.xml:system/etc/permissions/com.qualcomm.location.xml
+    device/lge/w5c/prebuilt/etc/permissions/com.qualcomm.location.xml:system/etc/permissions/com.qualcomm.location.xml
 #    frameworks/native/data/etc/android.hardware.nfc.xml:system/etc/permissions/android.hardware.nfc.xml \
 #    frameworks/native/data/etc/android.hardware.nfc.hce.xml:system/etc/permissions/android.hardware.nfc.hce.xml \
 #    frameworks/native/data/etc/com.android.nfc_extras.xml:system/etc/permissions/com.android.nfc_extras.xml
 
 # Configs
 PRODUCT_COPY_FILES += \
-    device/lge/msm8610-common/prebuilt/etc/wifi/p2p_supplicant_overlay.conf:system/etc/wifi/p2p_supplicant_overlay.conf \
-    device/lge/msm8610-common/prebuilt/etc/wifi/wpa_supplicant_overlay.conf:system/etc/wifi/wpa_supplicant_overlay.conf \
+    device/lge/w5c/prebuilt/etc/wifi/p2p_supplicant_overlay.conf:system/etc/wifi/p2p_supplicant_overlay.conf \
+    device/lge/w5c/prebuilt/etc/wifi/wpa_supplicant_overlay.conf:system/etc/wifi/wpa_supplicant_overlay.conf \
     kernel/lge/realm/drivers/staging/prima/firmware_bin/WCNSS_cfg.dat:system/etc/firmware/wlan/prima/WCNSS_cfg.dat \
     kernel/lge/realm/drivers/staging/prima/firmware_bin/WCNSS_qcom_cfg.ini:system/etc/firmware/wlan/prima/WCNSS_qcom_cfg.ini \
     kernel/lge/realm/drivers/staging/prima/firmware_bin/WCNSS_qcom_cfg.ini:system/etc/wifi/WCNSS_qcom_cfg.ini \
-    device/lge/msm8610-common/prebuilt/etc/wifi/WCNSS_qcom_wlan_nv.bin:system/etc/firmware/wlan/prima/WCNSS_qcom_wlan_nv.bin \
-    device/lge/msm8610-common/prebuilt/etc/wifi/WCNSS_qcom_wlan_nv.bin:system/etc/wifi/WCNSS_qcom_wlan_nv.bin \
-    device/lge/msm8610-common/prebuilt/etc/hostapd/hostapd.accept:system/etc/hostapd/hostapd.accept \
-    device/lge/msm8610-common/prebuilt/etc/hostapd/hostapd.deny:system/etc/hostapd/hostapd.deny \
-    device/lge/msm8610-common/prebuilt/etc/hostapd/hostapd_default.conf:system/etc/hostapd/hostapd_default.conf \
-    device/lge/msm8610-common/prebuilt/etc/audio_policy.conf:system/etc/audio_policy.conf \
-    device/lge/msm8610-common/prebuilt/etc/audio_effects.conf:system/etc/audio_effects.conf \
-    device/lge/msm8610-common/prebuilt/etc/media_codecs.xml:system/etc/media_codecs.xml \
-    device/lge/msm8610-common/prebuilt/etc/media_profiles.xml:system/etc/media_profiles.xml \
-    device/lge/msm8610-common/prebuilt/usr/idc/touch_dev.idc:system/usr/idc/touch_dev.idc \
-    device/lge/msm8610-common/prebuilt/usr/keylayout/gpio-keys.kl:system/usr/keylayout/gpio-keys.kl \
-    device/lge/msm8610-common/prebuilt/etc/init.zetaw.fm.sh:system/etc/init.zetaw.fm.sh \
-    device/lge/msm8610-common/prebuilt/etc/init.zetaw.ssr.wifi.sh:system/etc/init.zetaw.ssr.wifi.sh \
-    device/lge/msm8610-common/prebuilt/etc/init.zetaw.wifi.sh:system/etc/init.zetaw.wifi.sh \
-    device/lge/msm8610-common/prebuilt/etc/init.crda.sh:system/etc/init.crda.sh \
-    device/lge/msm8610-common/prebuilt/etc/init.zetaw.post_boot.sh:system/etc/init.zetaw.post_boot.sh \
-    device/lge/msm8610-common/prebuilt/etc/sap.conf:system/etc/sap.conf \
-    device/lge/msm8610-common/prebuilt/etc/gps.conf:system/etc/gps.conf \
-    device/lge/msm8610-common/prebuilt/etc/msap.conf:system/etc/msap.conf \
-    device/lge/msm8610-common/prebuilt/etc/clatd.conf:system/etc/clatd.conf \
-    device/lge/msm8610-common/prebuilt/etc/sec_config:system/etc/sec_config \
-    device/lge/msm8610-common/prebuilt/etc/izat.conf:system/etc/izat.conf \
-    device/lge/msm8610-common/prebuilt/etc/boot_fixup:system/etc/boot_fixup \
-    device/lge/msm8610-common/prebuilt/etc/quipc.conf:system/etc/quipc.conf
-#    device/lge/msm8610-common/prebuilt/etc/libnfc-brcm.conf:system/etc/libnfc-brcm.conf \
-#    device/lge/msm8610-common/prebuilt/etc/nfc-nci.conf:system/etc/nfc-nci.conf \
-#    device/lge/msm8610-common/prebuilt/etc/libnfc-nxp.conf:system/etc/libnfc-nxp.conf \
-#    device/lge/msm8610-common/prebuilt/etc/nfcee_access.xml:system/etc/nfcee_access.xml \
+    device/lge/w5c/prebuilt/etc/wifi/WCNSS_qcom_wlan_nv.bin:system/etc/firmware/wlan/prima/WCNSS_qcom_wlan_nv.bin \
+    device/lge/w5c/prebuilt/etc/wifi/WCNSS_qcom_wlan_nv.bin:system/etc/wifi/WCNSS_qcom_wlan_nv.bin \
+    device/lge/w5c/prebuilt/etc/hostapd/hostapd.accept:system/etc/hostapd/hostapd.accept \
+    device/lge/w5c/prebuilt/etc/hostapd/hostapd.deny:system/etc/hostapd/hostapd.deny \
+    device/lge/w5c/prebuilt/etc/hostapd/hostapd_default.conf:system/etc/hostapd/hostapd_default.conf \
+    device/lge/w5c/prebuilt/etc/audio_policy.conf:system/etc/audio_policy.conf \
+    device/lge/w5c/prebuilt/etc/audio_effects.conf:system/etc/audio_effects.conf \
+    device/lge/w5c/prebuilt/etc/media_codecs.xml:system/etc/media_codecs.xml \
+    device/lge/w5c/prebuilt/etc/media_profiles.xml:system/etc/media_profiles.xml \
+    device/lge/w5c/prebuilt/usr/idc/touch_dev.idc:system/usr/idc/touch_dev.idc \
+    device/lge/w5c/prebuilt/usr/keylayout/gpio-keys.kl:system/usr/keylayout/gpio-keys.kl \
+    device/lge/w5c/prebuilt/usr/keylayout/Generic-LS620.kl:system/usr/keylayout/Generic-LS620.kl \
+    device/lge/w5c/prebuilt/etc/init.zetaw.fm.sh:system/etc/init.zetaw.fm.sh \
+    device/lge/w5c/prebuilt/etc/init.zetaw.ssr.wifi.sh:system/etc/init.zetaw.ssr.wifi.sh \
+    device/lge/w5c/prebuilt/etc/init.zetaw.wifi.sh:system/etc/init.zetaw.wifi.sh \
+    device/lge/w5c/prebuilt/etc/init.crda.sh:system/etc/init.crda.sh \
+    device/lge/w5c/prebuilt/etc/init.zetaw.post_boot.sh:system/etc/init.zetaw.post_boot.sh \
+    device/lge/w5c/prebuilt/etc/sap.conf:system/etc/sap.conf \
+    device/lge/w5c/prebuilt/etc/gps.conf:system/etc/gps.conf \
+    device/lge/w5c/prebuilt/etc/msap.conf:system/etc/msap.conf \
+    device/lge/w5c/prebuilt/etc/clatd.conf:system/etc/clatd.conf \
+    device/lge/w5c/prebuilt/etc/sec_config:system/etc/sec_config \
+    device/lge/w5c/prebuilt/etc/izat.conf:system/etc/izat.conf \
+    device/lge/w5c/prebuilt/etc/boot_fixup:system/etc/boot_fixup \
+    device/lge/w5c/prebuilt/etc/quipc.conf:system/etc/quipc.conf
+#    device/lge/w5c/prebuilt/etc/libnfc-brcm.conf:system/etc/libnfc-brcm.conf \
+#    device/lge/w5c/prebuilt/etc/nfc-nci.conf:system/etc/nfc-nci.conf \
+#    device/lge/w5c/prebuilt/etc/libnfc-nxp.conf:system/etc/libnfc-nxp.conf \
+#    device/lge/w5c/prebuilt/etc/nfcee_access.xml:system/etc/nfcee_access.xml \
 
 # Ramdisk
 PRODUCT_COPY_FILES += \
-    device/lge/msm8610-common/rootdir/init.class_main.sh:root/init.class_main.sh \
-    device/lge/msm8610-common/rootdir/init.lge.early.rc:root/init.lge.early.rc \
-    device/lge/msm8610-common/rootdir/init.lge.log.rc:root/init.lge.log.rc \
-    device/lge/msm8610-common/rootdir/init.lge.rc:root/init.lge.rc \
-    device/lge/msm8610-common/rootdir/init.mdm.sh:root/init.mdm.sh \
-    device/lge/msm8610-common/rootdir/init.usb.rc:root/init.usb.rc \
-    device/lge/msm8610-common/rootdir/init.msm8610.rc:root/init.msm8610.rc \
-    device/lge/msm8610-common/rootdir/init.msm8610.usb.rc:root/init.msm8610.usb.rc \
-    device/lge/msm8610-common/rootdir/init.msm8610_product.rc:root/init.msm8610_product.rc \
-    device/lge/msm8610-common/rootdir/init.zetaw.bt_vendor.rc:root/init.zetaw.bt_vendor.rc \
-    device/lge/msm8610-common/rootdir/init.zetaw.class_core.sh:root/init.zetaw.class_core.sh \
-    device/lge/msm8610-common/rootdir/init.zetaw.cmm.usb.sh:root/init.zetaw.cmm.usb.sh \
-    device/lge/msm8610-common/rootdir/init.zetaw.early_boot.sh:root/init.zetaw.early_boot.sh \
-    device/lge/msm8610-common/rootdir/init.zetaw.factory.sh:root/init.zetaw.factory.sh \
-    device/lge/msm8610-common/rootdir/init.zetaw.rc:root/init.zetaw.rc \
-    device/lge/msm8610-common/rootdir/init.zetaw.ril.sh:root/init.zetaw.ril.sh \
-    device/lge/msm8610-common/rootdir/init.zetaw.sh:root/init.zetaw.sh \
-    device/lge/msm8610-common/rootdir/init.zetaw.ssr.sh:root/init.zetaw.ssr.sh \
-    device/lge/msm8610-common/rootdir/init.zetaw.syspart_fixup.sh:root/init.zetaw.syspart_fixup.sh \
-    device/lge/msm8610-common/rootdir/init.zetaw.usb.rc:root/init.zetaw.usb.rc \
-    device/lge/msm8610-common/rootdir/init.zetaw.usb.sh:root/init.zetaw.usb.sh \
-    device/lge/msm8610-common/rootdir/ueventd.msm8610.rc:root/ueventd.msm8610.rc \
-    device/lge/msm8610-common/prebuilt/etc/init.zetaw.bt.sh:system/etc/init.zetaw.bt.sh 
+    device/lge/w5c/rootdir/fstab.msm8610:root/fstab.msm8610 \
+    device/lge/w5c/rootdir/init.class_main.sh:root/init.class_main.sh \
+    device/lge/w5c/rootdir/init.lge.early.rc:root/init.lge.early.rc \
+    device/lge/w5c/rootdir/init.lge.log.rc:root/init.lge.log.rc \
+    device/lge/w5c/rootdir/init.lge.rc:root/init.lge.rc \
+    device/lge/w5c/rootdir/init.mdm.sh:root/init.mdm.sh \
+    device/lge/w5c/rootdir/init.usb.rc:root/init.usb.rc \
+    device/lge/w5c/rootdir/init.msm8610.rc:root/init.msm8610.rc \
+    device/lge/w5c/rootdir/init.msm8610.usb.rc:root/init.msm8610.usb.rc \
+    device/lge/w5c/rootdir/init.msm8610_product.rc:root/init.msm8610_product.rc \
+    device/lge/w5c/rootdir/init.target.rc:root/init.target.rc \
+    device/lge/w5c/rootdir/init.zetaw.bt_vendor.rc:root/init.zetaw.bt_vendor.rc \
+    device/lge/w5c/rootdir/init.zetaw.class_core.sh:root/init.zetaw.class_core.sh \
+    device/lge/w5c/rootdir/init.zetaw.cmm.usb.sh:root/init.zetaw.cmm.usb.sh \
+    device/lge/w5c/rootdir/init.zetaw.early_boot.sh:root/init.zetaw.early_boot.sh \
+    device/lge/w5c/rootdir/init.zetaw.factory.sh:root/init.zetaw.factory.sh \
+    device/lge/w5c/rootdir/init.zetaw.rc:root/init.zetaw.rc \
+    device/lge/w5c/rootdir/init.zetaw.ril.sh:root/init.zetaw.ril.sh \
+    device/lge/w5c/rootdir/init.zetaw.sh:root/init.zetaw.sh \
+    device/lge/w5c/rootdir/init.zetaw.ssr.sh:root/init.zetaw.ssr.sh \
+    device/lge/w5c/rootdir/init.zetaw.syspart_fixup.sh:root/init.zetaw.syspart_fixup.sh \
+    device/lge/w5c/rootdir/init.zetaw.usb.rc:root/init.zetaw.usb.rc \
+    device/lge/w5c/rootdir/init.zetaw.usb.sh:root/init.zetaw.usb.sh \
+    device/lge/w5c/rootdir/ueventd.msm8610.rc:root/ueventd.msm8610.rc \
+    device/lge/w5c/prebuilt/etc/init.zetaw.bt.sh:system/etc/init.zetaw.bt.sh 
 
 # TWRP
 PRODUCT_COPY_FILES += \
-    device/lge/msm8610-common/rootdir/twrp.fstab:recovery/root/etc/twrp.fstab
+    device/lge/w5c/rootdir/twrp.fstab:recovery/root/etc/twrp.fstab
 
 # Audio
 PRODUCT_PACKAGES += \
@@ -150,6 +159,10 @@ PRODUCT_PACKAGES += \
 # Misc
 PRODUCT_PACKAGES += \
     com.android.future.usb.accessory
+
+# Density
+PRODUCT_PROPERTY_OVERRIDES += \
+    ro.sf.lcd_density=240
 
 # Crda
 PRODUCT_PACKAGES += \
@@ -222,21 +235,11 @@ PRODUCT_PACKAGES += \
 
 # EGL config
 PRODUCT_COPY_FILES += \
-    device/lge/msm8610-common/prebuilt/egl.cfg:system/lib/egl/egl.cfg
+    device/lge/w5c/prebuilt/egl.cfg:system/lib/egl/egl.cfg
 
 # Opengles version 3
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.opengles.version=196608
-
-# QCOM Display
-PRODUCT_PROPERTY_OVERRIDES += \
-    persist.hwc.mdpcomp.enable=true \
-    debug.sf.fb_always_on=1 \
-    debug.composition.type=gpu \
-    debug.gralloc.map_fb_memory=0 \
-    debug.hwc.dynThreshold=1.5 \
-    dalvik.vm.heapsize=36m \
-    dev.pm.dyn_samplingrate=1
 
 # QCOM Display
 PRODUCT_PACKAGES += \
@@ -245,6 +248,15 @@ PRODUCT_PACKAGES += \
     liboverlay \
     libqdutils \
     libtilerenderer
+
+PRODUCT_PROPERTY_OVERRIDES += \
+    persist.hwc.mdpcomp.enable=true \
+    debug.sf.fb_always_on=1 \
+    debug.composition.type=gpu \
+    debug.gralloc.map_fb_memory=0 \
+    debug.hwc.dynThreshold=1.5 \
+    dalvik.vm.heapsize=36m \
+    dev.pm.dyn_samplingrate=1
 
 # Omx
 PRODUCT_PACKAGES += \
@@ -280,6 +292,9 @@ PRODUCT_PROPERTY_OVERRIDES += \
     com.qc.hardware=true
 
 # Audio
+PRODUCT_COPY_FILES += \
+    device/lge/w5c/mixer_paths.xml:system/etc/mixer_paths.xml
+
 PRODUCT_PROPERTY_OVERRIDES += \
     persist.audio.fluence.mode=endfire \
     persist.audio.vr.enable=false \
@@ -379,9 +394,11 @@ PRODUCT_PROPERTY_OVERRIDES += \
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.ksm.default=1
 
-PRODUCT_BUILD_PROP_OVERRIDES += BUILD_UTC_DATE=0
+# Thermal
+PRODUCT_COPY_FILES += \
+    device/lge/w5c/prebuilt/etc/thermal-engine-8610.conf:system/etc/thermal-engine-8610.conf
 
-$(call inherit-product, vendor/lge/msm8610-common/msm8610-vendor.mk)
+PRODUCT_BUILD_PROP_OVERRIDES += BUILD_UTC_DATE=0
 
 PRODUCT_PROPERTY_OVERRIDES += \
     rild.libpath=/vendor/lib/libril-qc-qmi-1.so \
@@ -449,3 +466,5 @@ PRODUCT_PROPERTY_OVERRIDES += \
 # CmUpdater
 PRODUCT_PROPERTY_OVERRIDES += \
 cm.updater.uri=http://vasy.ru/CyanogenModOTA/api
+
+$(call inherit-product, vendor/lge/w5c/w5c-vendor.mk)

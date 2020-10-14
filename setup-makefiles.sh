@@ -1,8 +1,8 @@
 #!/bin/bash
 
 VENDOR=lge
-DEVICE=w5ds
-OUTDIR=vendor/$VENDOR/$DEVICE
+DEVICE=w5c
+OUTDIR=vendor/$VENDOR/$DEVICE-common
 MAKEFILE=../../../$OUTDIR/$DEVICE-vendor-blobs.mk
 
 (cat << EOF) > $MAKEFILE

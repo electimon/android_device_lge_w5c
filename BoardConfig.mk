@@ -24,11 +24,11 @@
 USE_CAMERA_STUB := false
 TARGET_NO_BOOTLOADER := true
 
-TARGET_SPECIFIC_HEADER_PATH += device/lge/msm8610-common/include
+TARGET_SPECIFIC_HEADER_PATH += device/lge/w5c/include
 
 # Vendor Init
-TARGET_UNIFIED_DEVICE := true
-#TARGET_INIT_VENDOR_LIB := libinit_msm
+TARGET_LIBINIT_DEFINES_FILE := device/lge/w5c/init/init_w5c.c
+TARGET_INIT_VENDOR_LIB := libinit_msm
 
 # Platform
 TARGET_ARCH := arm
@@ -41,20 +41,25 @@ TARGET_CPU_ABI2 := armeabi
 TARGET_ARCH_VARIANT := armv7-a-neon
 ARCH_ARM_HAVE_TLS_REGISTER := true
 TARGET_BOOTLOADER_BOARD_NAME := MSM8610
+TARGET_OTA_ASSERT_DEVICE := w5c
 
 # Kernel image
 BOARD_KERNEL_SEPARATED_DT := true
 TARGET_KERNEL_SOURCE := kernel/lge/realm
+TARGET_KERNEL_CONFIG := w5c_defconfig
 BOARD_KERNEL_CMDLINE := console=ttyHSL0,115200,n8 androidboot.console=ttyHSL0 user_debug=23 msm_rtb.filter=0x37 androidboot.hardware=msm8610 androidboot.selinux=permissive
 BOARD_KERNEL_BASE := 0x00000000
 BOARD_KERNEL_PAGESIZE := 2048
 BOARD_MKBOOTIMG_ARGS := --ramdisk_offset 0x01000000 --tags_offset 0x00000100
+BOARD_CUSTOM_BOOTIMG_MK := device/lge/w5c/mkbootimg.mk
+TARGET_REQUIRES_BUMP := true
 
 # Offmode Charging
 BOARD_CHARGER_ENABLE_SUSPEND := true
 BOARD_CHARGER_SHOW_PERCENTAGE := true
 BOARD_CHARGER_DISABLE_INIT_BLANK := true
-BOARD_HEALTHD_CUSTOM_CHARGER := device/lge/msm8610-common/charger/healthd_mode_charger.cpp
+BOARD_HEALTHD_CUSTOM_CHARGER := device/lge/w5c/charger/healthd_mode_charger.cpp
+BOARD_HEALTHD_CUSTOM_CHARGER_RES := device/lge/w5c/charger/images
 COMMON_GLOBAL_CFLAGS += \
     -DBOARD_CHARGING_CMDLINE_NAME='"androidboot.mode"' \
     -DBOARD_CHARGING_CMDLINE_VALUE='"chargerlogo"'
@@ -77,7 +82,7 @@ TARGET_USES_QCOM_COMPRESSED_AUDIO := true
 TARGET_NO_RPC := true
 
 # Graphics
-BOARD_EGL_CFG := device/lge/msm8610-common/prebuilt/egl.cfg
+BOARD_EGL_CFG := device/lge/w5c/prebuilt/egl.cfg
 TARGET_DISPLAY_USE_RETIRE_FENCE := true
 USE_OPENGL_RENDERER := true
 TARGET_USES_C2D_COMPOSITION :=
@@ -86,16 +91,20 @@ NUM_FRAMEBUFFER_SURFACE_BUFFERS := 3
 OVERRIDE_RS_DRIVER := libRSDriver_adreno.so
 MAX_EGL_CACHE_KEY_SIZE := 12*1024
 MAX_EGL_CACHE_SIZE := 2048*1024
+DEVICE_RESOLUTION := 480x800
 
 # Use qcom power hal
 TARGET_POWERHAL_VARIANT := qcom
 TARGET_USES_CPU_BOOST_HINT := true
 
 # Hardware tunables framework
-BOARD_HARDWARE_CLASS := device/lge/msm8610-common/cmhw/
+BOARD_HARDWARE_CLASS := device/lge/w5c/cmhw/
+
+# Lights
+TARGET_PROVIDES_LIBLIGHT := true
 
 # Bluetooth
-BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR := device/lge/msm8610-common/bluetooth
+BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR := device/lge/w5c/bluetooth
 BOARD_HAVE_BLUETOOTH := true
 BOARD_HAVE_BLUETOOTH_QCOM := true
 BLUETOOTH_HCI_USE_MCT := true
@@ -155,7 +164,7 @@ BOARD_RECOVERY_ALWAYS_WIPES := true
 
 # TWRP Recovery
 BOARD_HAS_NO_SELECT_BUTTON := true
-TARGET_RECOVERY_FSTAB := device/lge/msm8610-common/recovery.fstab
+TARGET_RECOVERY_FSTAB := device/lge/w5c/recovery.fstab
 RECOVERY_FSTAB_VERSION := 2
 TARGET_RECOVERY_PIXEL_FORMAT := "RGBX_8888"
 #RECOVERY_GRAPHICS_USE_LINELENGTH := true
@@ -177,13 +186,14 @@ RECOVERY_SDCARD_ON_DATA := true
 HAVE_SELINUX := true
 BOARD_HAS_NO_MISC_PARTITION := true
 TARGET_RECOVERY_QCOM_RTC_FIX := true
+TW_BRIGHTNESS_PATH := /sys/class/leds/lcd-backlight/brightness
 
 # SELinux policies
 # qcom sepolicy
 include device/qcom/sepolicy/sepolicy.mk
 
 BOARD_SEPOLICY_DIRS += \
-        device/lge/msm8610-common/sepolicy
+        device/lge/w5c/sepolicy
 
 BOARD_SEPOLICY_UNION += \
     device.te \
