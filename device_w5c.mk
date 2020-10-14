@@ -21,7 +21,10 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/languages_full.mk)
 # Specific overlay
 DEVICE_PACKAGE_OVERLAYS += device/lge/w5c/overlay
 
-PRODUCT_PACKAGES += Torch
+# Packages
+PRODUCT_PACKAGES += \
+    Torch \
+    lights.msm8610
 
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.sf.lcd_density=240

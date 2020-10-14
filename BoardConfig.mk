@@ -42,4 +42,7 @@ TARGET_RELEASETOOLS_EXTENSIONS := device/lge/w5c
 # Charger
 BOARD_HEALTHD_CUSTOM_CHARGER_RES := device/lge/w5c/charger/images
 
+# Lights
+TARGET_PROVIDES_LIBLIGHT := true
+
 -include vendor/lge/w5c/BoardConfigVendor.mk
