@@ -18,8 +18,8 @@
 $(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
 $(call inherit-product, device/lge/w5c/device.mk)
 
-# Inherit some common CM stuff.
-$(call inherit-product, vendor/cm/config/common_full_phone.mk)
+# Inherit some common Lineage stuff.
+$(call inherit-product, vendor/lineage/config/common_full_phone.mk)
 
 # Boot animation
 TARGET_SCREEN_WIDTH := 480
@@ -27,7 +27,7 @@ TARGET_SCREEN_HEIGHT := 800
 
 ## Device identifier. This must come after all inclusions
 PRODUCT_DEVICE := w5c
-PRODUCT_NAME := cm_w5c
+PRODUCT_NAME := lineage_w5c
 PRODUCT_BRAND := lge
 PRODUCT_MODEL := w5c
 PRODUCT_MANUFACTURER := LGE
