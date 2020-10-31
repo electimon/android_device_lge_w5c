@@ -26,10 +26,6 @@ TARGET_NO_BOOTLOADER := true
 
 TARGET_SPECIFIC_HEADER_PATH += device/lge/w5c/include
 
-# Vendor Init
-TARGET_LIBINIT_DEFINES_FILE := device/lge/w5c/init/init_w5c.c
-TARGET_INIT_VENDOR_LIB := libinit_msm
-
 # Platform
 TARGET_ARCH := arm
 TARGET_BOARD_PLATFORM_GPU := qcom-adreno302
