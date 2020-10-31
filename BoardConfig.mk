@@ -46,6 +46,7 @@ TARGET_KERNEL_CONFIG := w5c_defconfig
 BOARD_KERNEL_CMDLINE := console=ttyHSL0,115200,n8 androidboot.console=ttyHSL0 user_debug=23 msm_rtb.filter=0x37 androidboot.hardware=msm8610 androidboot.selinux=permissive
 BOARD_KERNEL_BASE := 0x00000000
 BOARD_KERNEL_PAGESIZE := 2048
+BOARD_KERNEL_IMAGE_NAME := zImage
 BOARD_MKBOOTIMG_ARGS := --ramdisk_offset 0x01000000 --tags_offset 0x00000100
 BOARD_CUSTOM_BOOTIMG_MK := device/lge/w5c/mkbootimg.mk
 TARGET_REQUIRES_BUMP := true
@@ -92,9 +93,6 @@ DEVICE_RESOLUTION := 480x800
 # Use qcom power hal
 TARGET_POWERHAL_VARIANT := qcom
 TARGET_USES_CPU_BOOST_HINT := true
-
-# Hardware tunables framework
-BOARD_HARDWARE_CLASS := device/lge/w5c/cmhw/
 
 # Lights
 TARGET_PROVIDES_LIBLIGHT := true
@@ -154,6 +152,7 @@ BOARD_RECOVERYIMAGE_PARTITION_SIZE := 0x00D00000
 BOARD_SYSTEMIMAGE_PARTITION_SIZE := 609996800
 BOARD_FLASH_BLOCK_SIZE := 131072
 BOARD_HAS_LARGE_FILESYSTEM := true
+LZMA_RAMDISK_TARGETS := recovery
 
 #TARGET_RECOVERY_LCD_BACKLIGHT_PATH := \"/sys/class/backlight/lm3530/brightness\"
 BOARD_RECOVERY_ALWAYS_WIPES := true
