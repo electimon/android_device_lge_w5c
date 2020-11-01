@@ -49,7 +49,6 @@ BOARD_KERNEL_PAGESIZE := 2048
 BOARD_KERNEL_IMAGE_NAME := zImage
 BOARD_MKBOOTIMG_ARGS := --ramdisk_offset 0x01000000 --tags_offset 0x00000100
 BOARD_CUSTOM_BOOTIMG_MK := device/lge/w5c/mkbootimg.mk
-TARGET_REQUIRES_BUMP := true
 
 # Offmode Charging
 BOARD_CHARGER_ENABLE_SUSPEND := true
