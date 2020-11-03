@@ -24,7 +24,7 @@ DEVICE_PACKAGE_OVERLAYS += device/lge/w5c/overlay
 # AAPT
 PRODUCT_LOCALES := en_US
 PRODUCT_LOCALES += hdpi
-PRODUCT_AAPT_CONFIG := normal hdpi
+PRODUCT_AAPT_CONFIG := hdpi
 PRODUCT_AAPT_PREF_CONFIG := hdpi
 
 # Permissions
