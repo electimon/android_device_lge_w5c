@@ -498,4 +498,8 @@ PRODUCT_PROPERTY_OVERRIDES += \
 PRODUCT_PROPERTY_OVERRIDES += \
 cm.updater.uri=http://vasy.ru/CyanogenModOTA/api
 
+# SdcardFS
+PRODUCT_PROPERTY_OVERRIDES += \
+    ro.sys.sdcardfs=false
+
 $(call inherit-product, vendor/lge/w5c/w5c-vendor.mk)
