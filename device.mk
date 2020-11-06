@@ -69,7 +69,6 @@ PRODUCT_COPY_FILES += \
     device/lge/w5c/prebuilt/etc/hostapd/hostapd.deny:system/etc/hostapd/hostapd.deny \
     device/lge/w5c/prebuilt/etc/hostapd/hostapd_default.conf:system/etc/hostapd/hostapd_default.conf \
     device/lge/w5c/prebuilt/etc/audio_policy.conf:system/etc/audio_policy.conf \
-    device/lge/w5c/prebuilt/etc/audio_effects.conf:system/etc/audio_effects.conf \
     device/lge/w5c/prebuilt/etc/media_codecs.xml:system/etc/media_codecs.xml \
     device/lge/w5c/prebuilt/etc/media_profiles.xml:system/etc/media_profiles.xml \
     device/lge/w5c/prebuilt/usr/idc/touch_dev.idc:system/usr/idc/touch_dev.idc \
@@ -149,6 +148,16 @@ PRODUCT_PACKAGES += \
     amix \
     arec \
     alsaucm_test
+
+PRODUCT_COPY_FILES += \
+    device/lge/w5c/configs/audio/audio_effects.xml:$(TARGET_COPY_OUT_VENDOR)/etc/audio_effects.xml \
+    device/lge/w5c/configs/audio/mixer_paths.xml:$(TARGET_COPY_OUT_VENDOR)/etc/mixer_paths.xml
+
+PRODUCT_PROPERTY_OVERRIDES += \
+    persist.audio.fluence.mode=endfire \
+    persist.audio.vr.enable=false \
+    persist.audio.handset.mic=digital \
+    ro.qc.sdk.audio.ssr=false
 
 # Graphics
 PRODUCT_PACKAGES += \
@@ -315,16 +324,6 @@ PRODUCT_PACKAGES += \
 # QCOM
 PRODUCT_PROPERTY_OVERRIDES += \
     com.qc.hardware=true
-
-# Audio
-PRODUCT_COPY_FILES += \
-    device/lge/w5c/configs/audio/mixer_paths.xml:$(TARGET_COPY_OUT_VENDOR)/etc/mixer_paths.xml
-
-PRODUCT_PROPERTY_OVERRIDES += \
-    persist.audio.fluence.mode=endfire \
-    persist.audio.vr.enable=false \
-    persist.audio.handset.mic=digital \
-    ro.qc.sdk.audio.ssr=false
 
 # Bluetooth
 PRODUCT_PROPERTY_OVERRIDES += \
