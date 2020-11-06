@@ -318,7 +318,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 # Audio
 PRODUCT_COPY_FILES += \
-    device/lge/w5c/mixer_paths.xml:system/etc/mixer_paths.xml
+    device/lge/w5c/configs/audio/mixer_paths.xml:$(TARGET_COPY_OUT_VENDOR)/etc/mixer_paths.xml
 
 PRODUCT_PROPERTY_OVERRIDES += \
     persist.audio.fluence.mode=endfire \
