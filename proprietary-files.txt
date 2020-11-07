@@ -185,7 +185,6 @@ vendor/lib/libdsucsd.so
 vendor/lib/libqmi_csvt_srvc.so
 
 # Sensors
-lib/hw/lights.msm8610.so:vendor/lib/hw/lights.msm8610.so
 lib/hw/sensors.default.so:vendor/lib/hw/sensors.default.so
 
 # Thermal daemon
