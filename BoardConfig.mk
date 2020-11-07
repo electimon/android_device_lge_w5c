@@ -21,7 +21,7 @@
 # definition file).
 #
 
-USE_CAMERA_STUB := false
+USE_CAMERA_STUB := true
 TARGET_NO_BOOTLOADER := true
 
 TARGET_SPECIFIC_HEADER_PATH += device/lge/w5c/include
