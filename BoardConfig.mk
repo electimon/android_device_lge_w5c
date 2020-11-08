@@ -46,7 +46,7 @@ KERNEL_TOOLCHAIN := $(ANDROID_BUILD_TOP)/prebuilts/gcc/$(HOST_OS)-x86/arm/arm-ea
 #LZMA_RAMDISK_TARGETS := recovery
 #TARGET_KERNEL_CONFIG := w5c_spr_us_defconfig
 TARGET_KERNEL_CONFIG := w5c_defconfig
-TARGET_KERNEL_SOURCE := kernel/lge/realm
+TARGET_KERNEL_SOURCE := kernel/lge/realmcaf
 BOARD_KERNEL_IMAGE_NAME := zImage-dtb
 TARGET_KERNEL_APPEND_DTB := true
 
@@ -74,4 +74,5 @@ TARGET_USERIMAGES_USE_F2FS := true
 TW_THEME := portrait_hdpi
 #TW_SCREEN_BLANK_ON_BOOT := true
 TARGET_INCREASES_COLDBOOT_TIMEOUT := true
+TW_BRIGHTNESS_PATH := "/sys/class/leds/lcd-backlight/brightness"
 
