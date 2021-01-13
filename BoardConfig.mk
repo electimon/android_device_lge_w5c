@@ -130,10 +130,13 @@ BOARD_USES_QCOM_HARDWARE := true
 
 # Camera
 USE_DEVICE_SPECIFIC_CAMERA := true
+TARGET_HAS_LEGACY_CAMERA_HAL1 := true
 TARGET_DISPLAY_INSECURE_MM_HEAP := true
 BOARD_USES_LEGACY_MMAP := true
 TARGET_PROCESS_SDK_VERSION_OVERRIDE += \
+    /system/bin/mediaserver=21 \
     /system/vendor/bin/mm-qcamera-daemon=21
+TARGET_NEEDS_PLATFORM_TEXT_RELOCATIONS := true
 
 # Number of supplementary service groups allowed by init
 TARGET_NR_SVC_SUPP_GIDS := 28
