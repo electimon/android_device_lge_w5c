@@ -154,36 +154,6 @@ vendor/lib/libmm-abl-oem.so
 vendor/lib/libmm-abl.so
 -vendor/lib/libcneapiclient.so
 
-# Ril
-vendor/lib/libril-qc-qmi-1.so
-vendor/lib/libril-qcril-hook-oem.so
-vendor/lib/libdsutils.so
-vendor/lib/libdiag.so
-vendor/lib/libqmi.so
-vendor/lib/libqmi_client_qmux.so
-vendor/lib/libqmiservices.so
-vendor/lib/libidl.so
-vendor/lib/libqcci_legacy.so
-vendor/lib/libqmi_csi.so
-vendor/lib/libqmi_cci.so
-vendor/lib/libqmi_encdec.so
-vendor/lib/libqmi_common_so.so
-vendor/lib/libdsi_netctrl.so
-vendor/lib/libqdi.so
-vendor/lib/libnetmgr.so
-vendor/lib/libdsnetutils.so
-vendor/lib/libqdp.so
-vendor/lib/libcneapiclient.so
-vendor/lib/libxml.so
-lib/libril.so:vendor/lib/libril.so
-bin/qmuxd:vendor/bin/qmuxd
-bin/rild:vendor/bin/rild
-bin/rmt_storage:vendor/bin/rmt_storage
-bin/netmgrd:vendor/bin/netmgrd
-vendor/lib/libconfigdb.so
-vendor/lib/libdsucsd.so
-vendor/lib/libqmi_csvt_srvc.so
-
 # Sensors
 lib/hw/sensors.default.so:vendor/lib/hw/sensors.default.so
 lib/libproxyhal.so

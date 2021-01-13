@@ -20,7 +20,7 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/generic_no_telephony.mk)
 $(call inherit-product, device/lge/w5c/device.mk)
 
 # Inherit some common Lineage stuff.
-$(call inherit-product, vendor/lineage/config/common_mini_phone.mk)
+$(call inherit-product, vendor/lineage/config/common_mini.mk)
 
 # Boot animation
 TARGET_SCREEN_WIDTH := 480

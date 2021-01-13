@@ -102,7 +102,6 @@ PRODUCT_COPY_FILES += \
     device/lge/w5c/rootdir/init.zetaw.cmm.usb.sh:root/init.zetaw.cmm.usb.sh \
     device/lge/w5c/rootdir/init.zetaw.early_boot.sh:root/init.zetaw.early_boot.sh \
     device/lge/w5c/rootdir/init.zetaw.rc:root/init.zetaw.rc \
-    device/lge/w5c/rootdir/init.zetaw.ril.sh:root/init.zetaw.ril.sh \
     device/lge/w5c/rootdir/init.zetaw.sh:root/init.zetaw.sh \
     device/lge/w5c/rootdir/init.zetaw.ssr.sh:root/init.zetaw.ssr.sh \
     device/lge/w5c/rootdir/init.zetaw.syspart_fixup.sh:root/init.zetaw.syspart_fixup.sh \
@@ -408,16 +407,6 @@ PRODUCT_COPY_FILES += \
     frameworks/av/media/libstagefright/data/media_codecs_google_telephony.xml:system/etc/media_codecs_google_telephony.xml \
     frameworks/av/media/libstagefright/data/media_codecs_google_video_le.xml:system/etc/media_codecs_google_video_le.xml
 
-# Radio and Telephony
-PRODUCT_PROPERTY_OVERRIDES += \
-    ro.use_data_netmgrd=true \
-    ro.ril.transmitpower=true \
-    persist.radio.apm_sim_not_pwdn=1 \
-    persist.radio.call_type=1 \
-    ro.config.vc_call_vol_steps=7 \
-    ro.modem.no_wdog_chk=1 \
-    persist.call_recording.enabled=1
-
 # NFC packages
 #PRODUCT_PACKAGES += \
 #    NfcNci \
@@ -452,18 +441,7 @@ PRODUCT_COPY_FILES += \
 PRODUCT_BUILD_PROP_OVERRIDES += BUILD_UTC_DATE=0
 
 PRODUCT_PROPERTY_OVERRIDES += \
-    rild.libpath=/vendor/lib/libril-qc-qmi-1.so \
-    rild.libargs=-d[SPACE]/dev/smd0 \
-    ril.subscription.types=NV,RUIM \
-    persist.radio.proc_nw_scan=0 \
-    DEVICE_PROVISIONED=1 \
-    telephony.lteOnCdmaDevice=0 \
-    ro.telephony.default_network=0 \
-    ro.ril.enable.amr.wideband=1 \
     ro.lge.proximity.delay=25 \
-    ro.telephony.call_ring.delay=0 \
-    persist.radio.adb_log_on=1 \
-    persist.radio.qcril_am_enabled=1 \
     wlan.chip.vendor=qcom \
     wlan.chip.version=wcn \
     wifi.lge.patch=true \
@@ -506,7 +484,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
     ro.qc.sdk.izat.service_mask=0x0 \
     persist.gps.qc_nlp_in_use=0 \
     ro.gps.agps_provider=1 \
-    persist.qcril.disable_retry=true \
     persist.service.crash.enable=0 \
     ro.config.vc_call_vol_steps=6 \
     persist.data.sbp.update=0 \
