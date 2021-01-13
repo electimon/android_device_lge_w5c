@@ -1,6 +1,5 @@
 import /init.zetaw.rc
 import /init.msm8610.usb.rc
-import /init.msm8610_product.rc
 import /init.target.rc
 
 on early-init
@@ -11,11 +10,6 @@ on early-init
     write /sys/kernel/mm/ksm/pages_to_scan 100
     write /sys/kernel/mm/ksm/sleep_millisecs 500
     write /sys/kernel/mm/ksm/run 1
-
-on init
-
-    # CM: We use our own ril-daemon service definition, see mmi-ril-daemon
-    stop ril-daemon
 
 on fs
     mount_all fstab.msm8610
@@ -39,10 +33,6 @@ on post-fs-data
 
     setprop vold.post_fs_data_done 1
 
-on early-boot
-
-on boot
-
 #start camera server as daemon
 service qcamerasvr /vendor/bin/mm-qcamera-daemon
     class late_start
@@ -55,26 +45,6 @@ on property:init.svc.media=restarting
 on property:init.svc.servicemanager=restarting
     restart qcamerasvr
 #LGE_CHANGE_E, restart qcamerasvr when restarting mediaserver and servicemanager, yousung.kang@lge.com
-
-# Allow usb charging to be disabled persistently
-on property:persist.usb.chgdisabled=1
-   write /sys/class/power_supply/battery/charging_enabled 0
-
-on property:persist.usb.chgdisabled=0
-   write /sys/class/power_supply/battery/charging_enabled 1
-
-# Allow usb charging to be disabled persistently
-on property:persist.usb.chgdisabled=1
-   write /sys/class/power_supply/battery/charging_enabled 0
-
-on property:persist.usb.chgdisabled=0
-   write /sys/class/power_supply/battery/charging_enabled 1
-
-on property:persist.service.fakebatt=1
-    write /sys/class/power_supply/battery/pseudo_batt "1 1 100 40 4100 80 1"
-
-on property:persist.service.fakebatt=0
-    write /sys/class/power_supply/battery/pseudo_batt "0 1 100 40 4100 80 1"
 
 service time_daemon /system/bin/time_daemon
    class late_start
@@ -118,9 +88,6 @@ service charger /charger
 on charger
  class_start charger
 
-on boot
-    chown system system /sys/class/power_supply/battery/pseudo_batt
-
 service adsprpcd /system/bin/adsprpcd
    class main
    user media
@@ -140,21 +107,6 @@ service ppd /system/bin/mm-pp-daemon
 
 on property:init.svc.surfaceflinger=stopped
     stop ppd
-
-
-# Define call duration feature
-on property:ro.lge.callduration=1
-    mkdir /persist-lg/callduration 0770 system radio
-    chown system radio /persist-lg/callduration
-    chmod 0770 /persist-lg/callduration
-
-service mmi-ril-daemon /system/bin/rild
-    class main
-    socket rild stream 660 root radio
-    socket rild-debug stream 660 radio system
-    socket cutback stream 660 media radio
-    user root
-    group radio cache inet misc audio sdcard_rw qcom_oncrpc qcom_diag log net_raw diag
 
 service sensord /system/bin/sensord
     class late_start
