@@ -46,16 +46,16 @@ on property:init.svc.servicemanager=restarting
     restart qcamerasvr
 #LGE_CHANGE_E, restart qcamerasvr when restarting mediaserver and servicemanager, yousung.kang@lge.com
 
-service time_daemon /system/bin/time_daemon
+service time_daemon /vendor/bin/time_daemon
    class late_start
    user root
    group root
 
-service mpdecision /system/bin/mpdecision --no_sleep --avg_comp
+service mpdecision /vendor/bin/mpdecision --no_sleep --avg_comp
    user root
    disabled
 
-service thermal-engine /system/bin/thermal-engine
+service thermal-engine /vendor/bin/thermal-engine
    class main
    user root
    group root
@@ -76,11 +76,6 @@ on property:sys.boot_completed=1
     write /sys/block/mmcblk0/queue/scheduler fiops
     start qrngp
 
-service audiod /system/bin/audiod
-   class late_start
-   user system
-   group system
-
 service charger /charger
  class charger
  critical
@@ -93,7 +88,7 @@ service adsprpcd /system/bin/adsprpcd
    user media
    group media
 
-service wcnss-service /system/bin/wcnss_service
+service wcnss-service /vendor/bin/wcnss_service
    class main
    user root
    group system wifi radio
