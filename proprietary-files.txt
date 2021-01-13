@@ -186,6 +186,7 @@ vendor/lib/libqmi_csvt_srvc.so
 
 # Sensors
 lib/hw/sensors.default.so:vendor/lib/hw/sensors.default.so
+lib/libproxyhal.so
 
 # Thermal daemon
 bin/thermal-engine:vendor/bin/thermal-engine
