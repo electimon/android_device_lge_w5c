@@ -233,3 +233,5 @@ BOARD_SEPOLICY_UNION += \
     vold.te \
     wcnss_service.te \
     wpa.te
+
+TARGET_USES_LEGACY_ADB_INTERFACE := true
