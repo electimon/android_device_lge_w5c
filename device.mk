@@ -93,21 +93,14 @@ PRODUCT_COPY_FILES += \
 # Ramdisk
 PRODUCT_COPY_FILES += \
     device/lge/w5c/rootdir/fstab.msm8610:root/fstab.msm8610 \
-    device/lge/w5c/rootdir/init.class_main.sh:root/init.class_main.sh \
-    device/lge/w5c/rootdir/init.lge.early.rc:root/init.lge.early.rc \
-    device/lge/w5c/rootdir/init.lge.log.rc:root/init.lge.log.rc \
-    device/lge/w5c/rootdir/init.lge.rc:root/init.lge.rc \
-    device/lge/w5c/rootdir/init.mdm.sh:root/init.mdm.sh \
     device/lge/w5c/rootdir/init.usb.rc:root/init.usb.rc \
     device/lge/w5c/rootdir/init.msm8610.rc:root/init.msm8610.rc \
     device/lge/w5c/rootdir/init.msm8610.usb.rc:root/init.msm8610.usb.rc \
-    device/lge/w5c/rootdir/init.msm8610_product.rc:root/init.msm8610_product.rc \
     device/lge/w5c/rootdir/init.target.rc:root/init.target.rc \
     device/lge/w5c/rootdir/init.zetaw.bt_vendor.rc:root/init.zetaw.bt_vendor.rc \
     device/lge/w5c/rootdir/init.zetaw.class_core.sh:root/init.zetaw.class_core.sh \
     device/lge/w5c/rootdir/init.zetaw.cmm.usb.sh:root/init.zetaw.cmm.usb.sh \
     device/lge/w5c/rootdir/init.zetaw.early_boot.sh:root/init.zetaw.early_boot.sh \
-    device/lge/w5c/rootdir/init.zetaw.factory.sh:root/init.zetaw.factory.sh \
     device/lge/w5c/rootdir/init.zetaw.rc:root/init.zetaw.rc \
     device/lge/w5c/rootdir/init.zetaw.ril.sh:root/init.zetaw.ril.sh \
     device/lge/w5c/rootdir/init.zetaw.sh:root/init.zetaw.sh \
@@ -117,10 +110,6 @@ PRODUCT_COPY_FILES += \
     device/lge/w5c/rootdir/init.zetaw.usb.sh:root/init.zetaw.usb.sh \
     device/lge/w5c/rootdir/ueventd.msm8610.rc:root/ueventd.msm8610.rc \
     device/lge/w5c/prebuilt/etc/init.zetaw.bt.sh:system/etc/init.zetaw.bt.sh 
-
-# TWRP
-PRODUCT_COPY_FILES += \
-    device/lge/w5c/rootdir/twrp.fstab:recovery/root/etc/twrp.fstab
 
 # Audio
 PRODUCT_PACKAGES += \

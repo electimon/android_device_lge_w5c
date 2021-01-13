@@ -26,7 +26,6 @@
 #
  
 import init.zetaw.usb.rc
-import init.lge.log.rc
 #LG_UPDATE_START :  move to init.zetaw.bt_vendor.rc to seperate vendor's resource 20140106, [START]
 import init.zetaw.bt_vendor.rc
 #LG_UPDATE_END :  20140106, [END]
@@ -391,11 +390,6 @@ service last_kmsg_backup /system/bin/sh /system/etc/last_kmsg_backup.sh
 
 service zetaw-c_core-sh /system/bin/sh /init.zetaw.class_core.sh
     class core
-    user root
-    oneshot
-
-service zetaw-c_main-sh /system/bin/sh /init.class_main.sh
-    class main
     user root
     oneshot
 
