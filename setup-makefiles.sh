@@ -1,6 +1,7 @@
 #!/bin/bash
 #
 # Copyright (C) 2016 The CyanogenMod Project
+# Copyright (C) 2017 The LineageOS Project
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -17,11 +18,12 @@
 
 set -e
 
-# Required!
 DEVICE=w5c
 VENDOR=lge
 
-# Load extractutils and do some sanity checks
+INITIAL_COPYRIGHT_YEAR=2021
+
+# Load extract_utils and do some sanity checks
 MY_DIR="${BASH_SOURCE%/*}"
 if [[ ! -d "$MY_DIR" ]]; then MY_DIR="$PWD"; fi
 
@@ -40,8 +42,11 @@ setup_vendor "$DEVICE" "$VENDOR" "$LINEAGE_ROOT"
 # Copyright headers and guards
 write_headers
 
-# The standard blobs
 write_makefiles "$MY_DIR"/proprietary-files.txt true
 
-# We are done!
+cat << EOF >> "$ANDROIDMK"
+
+EOF
+
+# Finish
 write_footers
