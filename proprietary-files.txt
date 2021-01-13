@@ -154,6 +154,16 @@ vendor/lib/libmm-abl-oem.so
 vendor/lib/libmm-abl.so
 -vendor/lib/libcneapiclient.so
 
+# QMI
+vendor/lib/libdiag.so
+vendor/lib/libdsutils.so
+vendor/lib/libidl.so
+vendor/lib/libqmi_cci.so
+vendor/lib/libqmi_common_so.so
+vendor/lib/libqmi_client_qmux.so
+vendor/lib/libqmi_encdec.so
+vendor/lib/libqmiservices.so
+
 # Sensors
 lib/hw/sensors.default.so:vendor/lib/hw/sensors.default.so
 lib/libproxyhal.so
