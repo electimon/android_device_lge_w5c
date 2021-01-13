@@ -491,10 +491,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
     ro.lge.proximity.delay=25 \
     dalvik.vm.dex2oat-flags=--no-watch-dog
 
-# CmUpdater
-PRODUCT_PROPERTY_OVERRIDES += \
-cm.updater.uri=http://vasy.ru/CyanogenModOTA/api
-
 # SdcardFS
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.sys.sdcardfs=false
