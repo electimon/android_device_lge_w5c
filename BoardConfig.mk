@@ -135,7 +135,7 @@ TARGET_DISPLAY_INSECURE_MM_HEAP := true
 BOARD_USES_LEGACY_MMAP := true
 TARGET_PROCESS_SDK_VERSION_OVERRIDE += \
     /system/bin/mediaserver=21 \
-    /system/vendor/bin/mm-qcamera-daemon=21
+    /vendor/bin/mm-qcamera-daemon=21
 TARGET_NEEDS_PLATFORM_TEXT_RELOCATIONS := true
 
 # Number of supplementary service groups allowed by init
