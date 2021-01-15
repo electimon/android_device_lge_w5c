@@ -160,7 +160,8 @@ PRODUCT_PACKAGES += \
     libcurl \
     tcpdump \
     libxml2 \
-    libshims_atomic
+    libshims_atomic \
+    libshims_cameraparameters
 
 PRODUCT_PACKAGES += \
     com.android.future.usb.accessory

@@ -166,7 +166,8 @@ BOARD_RECOVERY_ALWAYS_WIPES := true
 
 # Shims
 TARGET_LD_SHIM_LIBS := \
-    /vendor/bin/mpdecision|libshims_atomic.so
+    /vendor/bin/mpdecision|libshims_atomic.so \
+    /vendor/lib/camera.vendor.msm8610.so|libshims_cameraparameters.so
 
 # TWRP Recovery
 BOARD_HAS_NO_SELECT_BUTTON := true
