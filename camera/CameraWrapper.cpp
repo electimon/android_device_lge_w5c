@@ -26,14 +26,13 @@
 #define LOG_TAG "CameraWrapper"
 #include <cutils/log.h>
 
+#include <android-base/properties.h>
 #include <utils/threads.h>
 #include <utils/String8.h>
 #include <hardware/hardware.h>
 #include <hardware/camera.h>
 #include <camera/Camera.h>
-#include <camera/CameraParameters2.h>
-#include <dlfcn.h>
-#include <math.h>
+#include <camera/CameraParameters.h>
 
 #define BACK_CAMERA_ID 0
 #define FRONT_CAMERA_ID 1
