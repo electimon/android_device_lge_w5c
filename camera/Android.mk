@@ -11,7 +11,6 @@ LOCAL_C_INCLUDES := \
 LOCAL_SHARED_LIBRARIES := \
 	    libhardware liblog libcamera_client libutils libcutils libdl libbase android.hidl.token@1.0-utils android.hardware.graphics.bufferqueue@1.0
 
-LOCAL_CFLAGS := -Werror
 LOCAL_MODULE_RELATIVE_PATH := hw
 LOCAL_PROPRIETARY_MODULE := true
 
