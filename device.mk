@@ -58,14 +58,14 @@ PRODUCT_COPY_FILES += \
 PRODUCT_COPY_FILES += \
     device/lge/w5c/prebuilt/etc/wifi/p2p_supplicant_overlay.conf:system/etc/wifi/p2p_supplicant_overlay.conf \
     device/lge/w5c/prebuilt/etc/wifi/wpa_supplicant_overlay.conf:system/etc/wifi/wpa_supplicant_overlay.conf \
-    kernel/lge/realm/drivers/staging/prima/firmware_bin/WCNSS_cfg.dat:system/etc/firmware/wlan/prima/WCNSS_cfg.dat \
-    kernel/lge/realm/drivers/staging/prima/firmware_bin/WCNSS_qcom_cfg.ini:system/etc/firmware/wlan/prima/WCNSS_qcom_cfg.ini \
-    kernel/lge/realm/drivers/staging/prima/firmware_bin/WCNSS_qcom_cfg.ini:system/etc/wifi/WCNSS_qcom_cfg.ini \
-    device/lge/w5c/prebuilt/etc/wifi/WCNSS_qcom_wlan_nv.bin:system/etc/firmware/wlan/prima/WCNSS_qcom_wlan_nv.bin \
-    device/lge/w5c/prebuilt/etc/wifi/WCNSS_qcom_wlan_nv.bin:system/etc/wifi/WCNSS_qcom_wlan_nv.bin \
-    device/lge/w5c/prebuilt/etc/hostapd/hostapd.accept:system/etc/hostapd/hostapd.accept \
-    device/lge/w5c/prebuilt/etc/hostapd/hostapd.deny:system/etc/hostapd/hostapd.deny \
-    device/lge/w5c/prebuilt/etc/hostapd/hostapd_default.conf:system/etc/hostapd/hostapd_default.conf \
+    kernel/lge/realm/drivers/staging/prima/firmware_bin/WCNSS_cfg.dat:vendor/etc/firmware/wlan/prima/WCNSS_cfg.dat \
+    kernel/lge/realm/drivers/staging/prima/firmware_bin/WCNSS_qcom_cfg.ini:vendor/etc/firmware/wlan/prima/WCNSS_qcom_cfg.ini \
+    kernel/lge/realm/drivers/staging/prima/firmware_bin/WCNSS_qcom_cfg.ini:vendor/etc/wifi/WCNSS_qcom_cfg.ini \
+    device/lge/w5c/prebuilt/etc/wifi/WCNSS_qcom_wlan_nv.bin:vendor/etc/firmware/wlan/prima/WCNSS_qcom_wlan_nv.bin \
+    device/lge/w5c/prebuilt/etc/wifi/WCNSS_qcom_wlan_nv.bin:vendor/etc/wifi/WCNSS_qcom_wlan_nv.bin \
+    device/lge/w5c/prebuilt/etc/hostapd/hostapd.accept:vendor/etc/hostapd/hostapd.accept \
+    device/lge/w5c/prebuilt/etc/hostapd/hostapd.deny:vendor/etc/hostapd/hostapd.deny \
+    device/lge/w5c/prebuilt/etc/hostapd/hostapd_default.conf:vendor/etc/hostapd/hostapd_default.conf \
     device/lge/w5c/prebuilt/etc/audio_policy.conf:system/etc/audio_policy.conf \
     device/lge/w5c/prebuilt/etc/media_codecs.xml:system/etc/media_codecs.xml \
     device/lge/w5c/prebuilt/etc/media_profiles.xml:system/etc/media_profiles.xml \
@@ -97,7 +97,6 @@ PRODUCT_COPY_FILES += \
     device/lge/w5c/rootdir/init.msm8610.rc:root/init.msm8610.rc \
     device/lge/w5c/rootdir/init.msm8610.usb.rc:root/init.msm8610.usb.rc \
     device/lge/w5c/rootdir/init.target.rc:root/init.target.rc \
-    device/lge/w5c/rootdir/init.zetaw.bt_vendor.rc:root/init.zetaw.bt_vendor.rc \
     device/lge/w5c/rootdir/init.zetaw.class_core.sh:root/init.zetaw.class_core.sh \
     device/lge/w5c/rootdir/init.zetaw.cmm.usb.sh:root/init.zetaw.cmm.usb.sh \
     device/lge/w5c/rootdir/init.zetaw.early_boot.sh:root/init.zetaw.early_boot.sh \
@@ -107,8 +106,8 @@ PRODUCT_COPY_FILES += \
     device/lge/w5c/rootdir/init.zetaw.syspart_fixup.sh:root/init.zetaw.syspart_fixup.sh \
     device/lge/w5c/rootdir/init.zetaw.usb.rc:root/init.zetaw.usb.rc \
     device/lge/w5c/rootdir/init.zetaw.usb.sh:root/init.zetaw.usb.sh \
-    device/lge/w5c/rootdir/ueventd.msm8610.rc:root/ueventd.msm8610.rc \
-    device/lge/w5c/prebuilt/etc/init.zetaw.bt.sh:system/etc/init.zetaw.bt.sh 
+    device/lge/w5c/rootdir/init.qcom.bt.sh:vendor/bin/init.qcom.bt.sh \
+    device/lge/w5c/rootdir/ueventd.msm8610.rc:root/ueventd.msm8610.rc
 
 # Audio
 PRODUCT_PACKAGES += \
@@ -146,6 +145,12 @@ PRODUCT_PROPERTY_OVERRIDES += \
     persist.audio.vr.enable=false \
     persist.audio.handset.mic=digital \
     ro.qc.sdk.audio.ssr=false
+
+# Bluetooth
+PRODUCT_PACKAGES += \
+    android.hardware.bluetooth@1.0-impl \
+    android.hardware.bluetooth@1.0-service \
+    libbt-vendor
 
 # Graphics
 PRODUCT_PACKAGES += \
@@ -500,10 +505,17 @@ PRODUCT_PROPERTY_OVERRIDES += \
     persist.data.sbp.update=0 \
     camera2.portability.force_api=1 \
     ro.lge.proximity.delay=25 \
-    dalvik.vm.dex2oat-flags=--no-watch-dog
+    dalvik.vm.dex2oat-flags=--no-watch-dog \
+    vendor.qcom.bluetooth.soc=pronto \
+    ro.qualcomm.bt.hci_transport=smd \
+    bluetooth.hfp.client=1 \
+    ro.qualcomm.bluetooth.sap=false \
+    ro.bluetooth.hfp.ver=1.6 \
+    qcom.bt.le_dev_pwr_class=1
 
 # SdcardFS
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.sys.sdcardfs=false
 
 $(call inherit-product, vendor/lge/w5c/w5c-vendor.mk)
+

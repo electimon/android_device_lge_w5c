@@ -12,7 +12,6 @@ bin/fm_qsoc_patches:vendor/bin/fm_qsoc_patches
 
 # Bluetooth
 bin/bdaddr_loader:vendor/bin/bdaddr_loader
-bin/btnvtool:vendor/bin/btnvtool
 bin/hci_qcomm_init:vendor/bin/hci_qcomm_init
 lib/libatd_corelib.so:vendor/lib/libatd_corelib.so
 lib/libbtnv.so:vendor/lib/libbtnv.so
